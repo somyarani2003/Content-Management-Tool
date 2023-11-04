@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="task1_content_management_tool.css">
+    <link rel="stylesheet" href="task1_content_management_tool.js">
+
+</head>
+
+<body>
+    <header class="parallax">
+
+        <h1 class="responsive-font-example" class="gradient-text" style="color: red; background-color: papayawhip; text-align: center; padding-top: 5px;padding-bottom: 5px;">
+            Somya's Content Management Tool </h1>
+        <h1 class="responsive-font-example" class="gradient-text" style="color: white; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; ">
+            Personal Blogging Website</h1>
+        <h5 class="responsive-font-example" class="gradient-text" style="color: bisque;">Write your innovative ideas here
+        </h5>
+
+    </header>
+    <nav style="display: flex; align-items: center; justify-content: center;">
+
+        <a class="responsive-font-example" href="#" title="Home"> Home </a>
+        <a class="responsive-font-example" href="#about"> About </a>
+        <a class="responsive-font-example" href="#posts"> Blogs</a>
+
+
+
+    </nav>
+
+    <div class="editor" id="editor">
+        <h2 style="color: antiquewhite; margin-bottom: 35px;">Create a New Blog</h2>
+        <input type="text" id="title" placeholder="Title of the Blog" style="width: 1100px;" />
+        <input type="text" id="image" placeholder="URL of the Thumbnail Image" style="width: 1100px;" />
+        <textarea id="content" rows="5" placeholder="Blog Description" style="width: 1100px;"></textarea>
+        <button onclick="addBlog()" style="background-color: coral;">Submit</button>
+    </div>
+    <div class="responsive-font-example">
+        <h1 class="responsive-font-example" id="about" style="color: burlywood; text-align: center;"><b> What is Blogging ? </b></h1>
+        <div class="responsive-font-example" class="sampoorna">
+            <h4 class="responsive-font-example" style="color: azure; text-align: justify; padding: 20px;">
+                Blogging refers to writing, photography, and other media that's self-published online. Blogging started as an opportunity for individuals to write diary-style entries, but it has since been incorporated into websites for many businesses. The hallmarks
+                of blogging include frequent updates, informal language, and opportunities for readers to engage and start a conversation.
+                <br> The answer to “What is blogging?” is that it is the process of creating blog posts and publishing them on a website. The website can be owned by an individual or a company, and the posted content can be articles, photos or other digital
+                media. Blogging often involves sharing long-form articles on a specific subject. Most blogs have a target audience, and bloggers often choose topics that interest their target audience. Often, brands have blogs on their websites, making
+                it easier for users to know about the company and engage with them.
+        </div>
+        </h4>
+
+    </div>
+    <br>
+    <div class="container" id="posts">
+        <div class="preview" id="preview"></div>
+
+    </div>
+
+    <footer class="text-light text-center p-3" style="background-color: purple; margin-top: 25px;">
+        <a href="https://github.com/RaySoham1022" target="_blank" class="text-light"><strong> &copy; Made by SOMYA RANI for Bharat Intern Full Stack Development Internship</strong></a>
+    </footer>
+    <script>
+        function addBlog() {
+            // Retrieve input values
+            var title = document.getElementById("title").value;
+            var image = document.getElementById("image").value;
+            var content = document.getElementById("content").value;
+
+
+            // Create HTML structure for the blog post
+            var blogPost = document.createElement("div");
+            blogPost.className = "blog-post";
+            blogPost.innerHTML = `
+      <h3 style="text-align:center;"><b>${title}</b></h3>
+      <br>
+      <div  style="display: flex;  flex-direction: column; align-items: center; justify-content: center;">
+        <img src="${image}" alt="Blog Image" style="height:250px; width:400px;">
+      <div>
+      <br>
+      <p style="color: black; font-size: medium; text-align: justify;"><b>${content}</b></p>
+      <br>
+        
+    `;
+
+            // Add the blog post to the preview section
+            var previewSection = document.getElementById("preview");
+            previewSection.appendChild(blogPost);
+
+            // Clear input fields after adding the blog
+            document.getElementById("title").value = "";
+            document.getElementById("image").value = "";
+            document.getElementById("content").value = "";
+        }
+    </script>
+</body>
+
+</html>
